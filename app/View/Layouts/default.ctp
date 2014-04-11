@@ -38,10 +38,25 @@
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array( 'alt' => "basado en CakePHP 2.4.7", 'border' => '0')),
+					$this->Html->image('powered_by_cake_logo_25.png', array( 'alt' => "Basado en CakePHP 2.4.7", 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false)
 				);
+                echo $this->Html->link(
+                    $this->Html->image('gplv3-127x51.png', array( 'alt' => "Licenciado bajo GPLv3", 'border' => '0', 'style' => 'height: 50px;' )),
+                    'http://fsfe.org/index.es.html',
+                    array('target' => '_blank', 'escape' => false)
+                );
+                echo $this->Html->link(
+                    $this->Html->image('powered-by-mysql-167x86.png', array( 'alt' => "Utilizando tecnologías MySQL", 'border' => '0', 'style' => 'height: 50px;' )),
+                    'http://www.mysql.com',
+                    array('target' => '_blank', 'escape' => false)
+                );
+                echo $this->Html->link(
+                    $this->Html->image('linux-inside.jpg', array( 'alt' => "LInux", 'border' => '0', 'style' => 'height: 50px;' )),
+                    'http://www.linux.org',
+                    array('target' => '_blank', 'escape' => false)
+                );
 			?>
 		</div>
 	</div>
