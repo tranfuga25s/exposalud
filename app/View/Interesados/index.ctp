@@ -11,7 +11,8 @@
 			<th><?php echo $this->Paginator->sort('fecha_nacimiento'); ?></th>
 			<th><?php echo $this->Paginator->sort('curso_biblico','Curso Biblico'); ?></th>
 			<th><?php echo $this->Paginator->sort('biblia', "Biblia Gratis"); ?></th>
-			<th class="actions">Accion</th>
+			<th>Cursos</th>
+			<th class="actions">Acciones</th>
 	</tr>
 	<?php foreach ($interesados as $interesado): ?>
 	<tr>
@@ -21,8 +22,13 @@
 		    <?php echo h($interesado['Interesado']['email']); ?>&nbsp;</td>
 		<td><?php echo h($interesado['Interesado']['direccion']); ?>&nbsp;</td>
 		<td><?php echo date( 'd/m/Y', strtotime( $interesado['Interesado']['fecha_nacimiento']) ); ?>&nbsp;</td>
-		<td><?php if( $interesado['Interesado']['curso_biblico']) {
+		<td><?php if( $interesado['Interesado']['curso_biblico_individual'] || $interesado['Interesado']['curso_biblico_grupal'] ) {
 		    echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
+            if( $interesado['Interesado']['curso_biblico_grupal'] ){
+                echo $this->Html->tag( 'span', 'G', array( 'class' => 'badge badge-info' ) );
+            } else {
+                echo $this->Html->tag( 'span', 'I', array( 'class' => 'badge badge-inverse' ) );
+            }
 		} else {
 		    echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
 		} ?>&nbsp;</td>
@@ -31,14 +37,49 @@
         } else {
             echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
         } ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link( 'Ver', array('action' => 'view', $interesado['Interesado']['id_interesado'])); ?>
-			<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $interesado['Interesado']['id_interesado'])); ?>
-			<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $interesado['Interesado']['id_interesado']), null, __('Are you sure you want to delete # %s?', $interesado['Interesado']['id_interesado'])); ?>
+       <td><?php if( $interesado['Interesado']['stress']     ||
+                     $interesado['Interesado']['psicologia'] ||
+                     $interesado['Interesado']['fumar']      ||
+                     $interesado['Interesado']['cocina']     ||
+                     $interesado['Interesado']['familiar']      ) {
+            echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
+            if( $interesado['Interesado']['stress'] ){
+                echo $this->Html->tag( 'span', 'S', array( 'class' => 'badge badge-success' ) );
+            }
+            if( $interesado['Interesado']['psicologia'] ) {
+                echo $this->Html->tag( 'span', 'P', array( 'class' => 'badge badge-warning' ) );
+            }
+            if( $interesado['Interesado']['fumar'] ) {
+                echo $this->Html->tag( 'span', 'F', array( 'class' => 'badge badge-inverse' ) );
+            }
+            if( $interesado['Interesado']['cocina'] ) {
+                echo $this->Html->tag( 'span', 'C', array( 'class' => 'badge badge-important' ) );
+            }
+            if( $interesado['Interesado']['familiar'] ) {
+                echo $this->Html->tag( 'span', 'VF', array( 'class' => 'badge badge-info' ) );
+            }
+        } else {
+            echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
+        } ?>&nbsp;</td>
+		<td>
+		    <div class="btn-group">
+			<?php echo $this->Html->link( 'Ver', array('action' => 'view', $interesado['Interesado']['id_interesado']), array( 'class' => 'btn btn-small btn-info')); ?>
+			<?php echo $this->Html->link( 'Editar', array('action' => 'edit', $interesado['Interesado']['id_interesado']), array( 'class' => 'btn btn-small btn-primary' )); ?>
+			<?php echo $this->Form->postLink( 'Eliminar', array('action' => 'delete', $interesado['Interesado']['id_interesado']), array( 'class' => 'btn btn-small btn-danger'), __('Are you sure you want to delete # %s?', $interesado['Interesado']['id_interesado'])); ?>
+            </div>
 		</td>
 	</tr>
 <?php endforeach; ?>
 </table>
+<small><b>Referencias:</b>
+    <?php echo $this->Html->tag( 'span', 'VF', array( 'class' => 'badge badge-info' ) ); ?>: Vida Familiar
+    <?php echo $this->Html->tag( 'span', 'C', array( 'class' => 'badge badge-important' ) ); ?>: Cocina
+    <?php echo $this->Html->tag( 'span', 'F', array( 'class' => 'badge badge-inverse' ) ); ?>: Dejar de Fumar
+    <?php echo $this->Html->tag( 'span', 'P', array( 'class' => 'badge badge-warning' ) ); ?>: Psicología
+    <?php echo $this->Html->tag( 'span', 'S', array( 'class' => 'badge badge-success' ) ); ?>: Salud  --
+    <?php echo $this->Html->tag( 'span', 'I', array( 'class' => 'badge badge-inverse' ) ); ?>: Individual
+    <?php echo $this->Html->tag( 'span', 'G', array( 'class' => 'badge badge-info' ) ); ?>: Grupal
+</small>
 <p>
 	<?php
 	echo $this->Paginator->counter(array(

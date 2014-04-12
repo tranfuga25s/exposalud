@@ -10,7 +10,15 @@
 		echo $this->Form->input('email', array( 'type' => 'text', 'class' => 'input-xxlarge' ) );
 		echo $this->Form->input('direccion');
 		echo $this->Form->input('fecha_nacimiento', array( 'dateFormat' => 'DMY', 'minYear' => 1700, 'maxYear' => 2014 ));
-		echo $this->Form->input('curso_biblico', array( 'label' => '¿Desea recibir cursos bíblicos por un instructor en forma grupal?'));
+        ?>
+        <label><b>¿Desea recibir cursos bíblicos por un instructor?</b></label>
+        <div class="col-sm-8">
+        <?php
+		echo $this->Form->input('curso_biblico_individual', array( 'label' => ' Individual', 'div' => false ));
+        echo $this->Form->input('curso_biblico_grupal', array( 'label' => ' Grupal', 'div' => false ));
+        ?>
+        </div>
+        <?php
 		echo $this->Form->input('biblia', array( 'label' => '¿Quisiera recibir una biblia de regalo?'));
         ?>
         <label><b>¿Desea recibir invitaciones para cursos para llevar una vida sana y saludable?</b></label>

@@ -1,7 +1,12 @@
+<style>
+* {
+    font-size: 11px;
+}
+</style>
 <div class="row-fluid">
     <div class="span7">
-         <table class="table table-bordered">
-             <th colspan="2"><h2>Datos del interesado #<?php echo $interesado['Interesado']['id_interesado']; ?></h2></th>
+         <table class="table-bordered" cellpadding="0" cellspacing="0" style="max-width: 100mm;">
+             <th colspan="2"><h5>Datos del interesado #<?php echo $interesado['Interesado']['id_interesado']; ?></h5></th>
              <tr>
                 <td>Nombre</td>
                 <td>
@@ -48,55 +53,10 @@
             </tr>
                 <td>Fecha de Nacimiento</td>
                 <td>
-                    <?php echo h($interesado['Interesado']['fecha_nacimiento']); ?>
+                    <?php echo date( 'd/m/Y', strtotime($interesado['Interesado']['fecha_nacimiento']) ); ?>
                     &nbsp;
                 </td>
              <tr>
-            <!-- </tr>
-                <td>¿Tiene esperanza en Dios?</td>
-                <td>
-                    <?php if($interesado['Interesado']['esperanza']) {
-                        echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
-                    } else {
-                        echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
-                    } ?>
-                    &nbsp;
-                </td>
-             <tr>
-            </tr>
-                <td>¿Desea estudiar la biblia?</td>
-                <td>
-                    <?php if($interesado['Interesado']['biblia']) {
-                        echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
-                    } else {
-                        echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
-                    } ?>
-                    &nbsp;
-                </td>
-             <tr>
-            </tr>
-                <td>¿Desea recibir información sobre distintos cursos de salud?</td>
-                <td>
-                    <?php if($interesado['Interesado']['informacion']) {
-                        echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
-                    } else {
-                        echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
-                    } ?>
-                    &nbsp;
-                </td>
-             <tr>
-            </tr>
-                <td>¿Desea ser visitado?</td>
-                <td>
-                    <?php if($interesado['Interesado']['visitado']) {
-                        echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
-                    } else {
-                        echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
-                    } ?>
-                    &nbsp;
-                </td>
-             <tr> -->
-             <tr><td colspan="2"><small><center>ExpoSalud Santa Fe 2014</center></small></td></tr>
             </table>
         </div>
 
