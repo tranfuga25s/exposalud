@@ -10,11 +10,17 @@
 		echo $this->Form->input('email', array( 'type' => 'text', 'class' => 'input-xxlarge' ) );
 		echo $this->Form->input('direccion');
 		echo $this->Form->input('fecha_nacimiento', array( 'dateFormat' => 'DMY', 'minYear' => 1700, 'maxYear' => 2014 ));
-		echo $this->Form->input('esperanza', array( 'label' => '¿Tiene esperanza en Dios?'));
-		echo $this->Form->input('biblia', array( 'label' => '¿Desea estudiar la biblia?'));
-		echo $this->Form->input('informacion', array( 'label' => '¿Desea recibir información sobre distintos cursos de salud?'));
-		echo $this->Form->input('visitado', array( 'label' => '¿Desea ser visitado?'));
-	?>
+		echo $this->Form->input('curso_biblico', array( 'label' => '¿Desea recibir cursos bíblicos por un instructor en forma grupal?'));
+		echo $this->Form->input('biblia', array( 'label' => '¿Quisiera recibir una biblia de regalo?'));
+        ?>
+        <label><b>¿Desea recibir invitaciones para cursos para llevar una vida sana y saludable?</b></label>
+            <?php
+            echo $this->Form->input('stress', array( 'label' => ' Stress' ) );
+            echo $this->Form->input('psicologia', array( 'label' => ' Psicología' ) );
+            echo $this->Form->input('fumar', array( 'label' => ' Dejar de Fumar' ) );
+            echo $this->Form->input('cocina', array( 'label' => ' Cocina saludable' ) );
+            echo $this->Form->input('familiar', array( 'label' => ' Armonia y vida familiar' ) );
+            ?>
 	</fieldset>
 <?php echo $this->Form->end( "Guardar" ); ?>
 </div>

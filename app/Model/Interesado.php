@@ -53,8 +53,8 @@ class Interesado extends AppModel {
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Por favor, ingrese un número de telefono válido',
-				//'allowEmpty' => false,
-				//'required' => false,
+				'allowEmpty' => true,
+				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -63,8 +63,8 @@ class Interesado extends AppModel {
 			'numeric' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Por favor, ingrese un número de celular',
-				//'allowEmpty' => false,
-				//'required' => false,
+				'allowEmpty' => true,
+				'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -99,7 +99,7 @@ class Interesado extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'esperanza' => array(
+		'curso_biblico' => array(
 			'boolean' => array(
 				'rule' => array('boolean'),
 				//'message' => 'Your custom message here',
@@ -119,7 +119,7 @@ class Interesado extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'informacion' => array(
+		'stress' => array(
 			'boolean' => array(
 				'rule' => array('boolean'),
 				//'message' => 'Your custom message here',
@@ -129,7 +129,7 @@ class Interesado extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'visitado' => array(
+		'psicologia' => array(
 			'boolean' => array(
 				'rule' => array('boolean'),
 				//'message' => 'Your custom message here',
@@ -139,5 +139,35 @@ class Interesado extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+        'fumar' => array(
+            'boolean' => array(
+                'rule' => array('boolean'),
+                //'message' => 'Your custom message here',
+                'allowEmpty' => true,
+                'required' => false,
+                //'last' => false, // Stop validation after this rule
+                //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),
+        ),
+        'cocina' => array(
+            'boolean' => array(
+                'rule' => array('boolean'),
+                //'message' => 'Your custom message here',
+                'allowEmpty' => true,
+                'required' => false,
+                //'last' => false, // Stop validation after this rule
+                //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),
+        ),
+        'familiar' => array(
+            'boolean' => array(
+                'rule' => array('boolean'),
+                //'message' => 'Your custom message here',
+                'allowEmpty' => true,
+                'required' => false,
+                //'last' => false, // Stop validation after this rule
+                //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),
+        ),
 	);
 }

@@ -9,10 +9,8 @@
 			    <?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('direccion'); ?></th>
 			<th><?php echo $this->Paginator->sort('fecha_nacimiento'); ?></th>
-			<th><?php echo $this->Paginator->sort('esperanza'); ?></th>
-			<th><?php echo $this->Paginator->sort('biblia'); ?></th>
-			<th><?php echo $this->Paginator->sort('informacion'); ?></th>
-			<th><?php echo $this->Paginator->sort('visitado'); ?></th>
+			<th><?php echo $this->Paginator->sort('curso_biblico','Curso Biblico'); ?></th>
+			<th><?php echo $this->Paginator->sort('biblia', "Biblia Gratis"); ?></th>
 			<th class="actions">Accion</th>
 	</tr>
 	<?php foreach ($interesados as $interesado): ?>
@@ -23,22 +21,12 @@
 		    <?php echo h($interesado['Interesado']['email']); ?>&nbsp;</td>
 		<td><?php echo h($interesado['Interesado']['direccion']); ?>&nbsp;</td>
 		<td><?php echo date( 'd/m/Y', strtotime( $interesado['Interesado']['fecha_nacimiento']) ); ?>&nbsp;</td>
-		<td><?php if( $interesado['Interesado']['esperanza']) {
+		<td><?php if( $interesado['Interesado']['curso_biblico']) {
 		    echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
 		} else {
 		    echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
 		} ?>&nbsp;</td>
 		<td><?php if($interesado['Interesado']['biblia']) {
-            echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
-        } else {
-            echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
-        } ?>&nbsp;</td>
-		<td><?php if($interesado['Interesado']['informacion']) {
-            echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
-        } else {
-            echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
-        } ?>&nbsp;</td>
-		<td><?php if($interesado['Interesado']['visitado']) {
             echo $this->Html->tag( 'span', 'Sí', array( 'class' => 'badge badge-success' ) );
         } else {
             echo $this->Html->tag( 'span', 'No', array( 'class' => 'badge' ) );
