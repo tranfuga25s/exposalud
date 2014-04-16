@@ -11,6 +11,14 @@
 		echo $this->Form->input('direccion');
 		echo $this->Form->input('fecha_nacimiento', array( 'dateFormat' => 'DMY', 'minYear' => 1700, 'maxYear' => 2014 ));
         ?>
+        <label><b>¿Desea recibir invitaciones para cursos para llevar una vida sana y saludable?</b></label>
+            <?php
+            echo $this->Form->input('stress', array( 'label' => ' Stress' ) );
+            echo $this->Form->input('psicologia', array( 'label' => ' Psicología' ) );
+            echo $this->Form->input('fumar', array( 'label' => ' Dejar de Fumar' ) );
+            echo $this->Form->input('cocina', array( 'label' => ' Cocina saludable' ) );
+            echo $this->Form->input('familiar', array( 'label' => ' Armonia y vida familiar' ) );
+            ?>
         <label><b>¿Desea recibir cursos bíblicos por un instructor?</b></label>
         <div class="col-sm-8">
         <?php
@@ -21,15 +29,7 @@
         <?php
 		echo $this->Form->input('biblia', array( 'label' => '¿Quisiera recibir una biblia de regalo?'));
         ?>
-        <label><b>¿Desea recibir invitaciones para cursos para llevar una vida sana y saludable?</b></label>
-            <?php
-            echo $this->Form->input('stress', array( 'label' => ' Stress' ) );
-            echo $this->Form->input('psicologia', array( 'label' => ' Psicología' ) );
-            echo $this->Form->input('fumar', array( 'label' => ' Dejar de Fumar' ) );
-            echo $this->Form->input('cocina', array( 'label' => ' Cocina saludable' ) );
-            echo $this->Form->input('familiar', array( 'label' => ' Armonia y vida familiar' ) );
-            ?>
-	</fieldset>
+    </fieldset>
 <?php echo $this->Form->end( "Guardar" ); ?>
 </div>
 <div class="actions">

@@ -23,7 +23,7 @@ class InteresadosController extends AppController {
      */
 	public function index() {
 		$this->Interesado->recursive = 0;
-        $this->Paginator->limit = 1000000;
+        $this->Paginator->settings = array( 'limit' => 1000000 );
 		$this->set('interesados', $this->Paginator->paginate() );
 	}
 
@@ -53,7 +53,7 @@ class InteresadosController extends AppController {
 			$this->Interesado->create();
 			if ($this->Interesado->save($this->request->data)) {
 				$this->Session->setFlash('El interesado ha sido guardado.');
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'view', $this->Interesado->id));
 			} else {
 				$this->Session->setFlash( 'El interesado no pudo ser guardado. Intente nuevamente.');
 			}
@@ -104,4 +104,9 @@ class InteresadosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+    public function exportar() {
+        $this->Interesado->recursive = 0;
+        $this->set('interesados', $this->Interesado->find( 'all' ) );
+    }
 }
